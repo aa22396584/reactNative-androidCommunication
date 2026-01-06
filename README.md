@@ -30,7 +30,7 @@ graph TD
     end
 
     subgraph "Bridge (JSI / Legacy Bridge)"
-        RN_Modules <--- "Synchronous / Asynchronous" ---> Bridge_Logic[JSON / JSI Communication]
+        RN_Modules <--> |"Synchronous / Asynchronous"| Bridge_Logic[JSON / JSI Communication]
     end
 
     subgraph "Android (Native Side)"
