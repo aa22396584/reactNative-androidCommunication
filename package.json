@@ -1,11 +1,19 @@
 {
-  "name": "reactnativeandroidhybrid",
+  "name": "react-native-android-communication-demo",
   "version": "1.0.0",
-  "description": "",
+  "description": "React Native 與 Android (Kotlin) 雙向通訊示範專案 | Demo project for bidirectional communication between React Native and Android with Kotlin.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": [
+    "react-native",
+    "android",
+    "kotlin",
+    "bridge",
+    "native-modules",
+    "communication"
+  ],
   "author": "ImL1s",
   "license": "ISC",
   "dependencies": {

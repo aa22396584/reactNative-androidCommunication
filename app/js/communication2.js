@@ -1,45 +1,72 @@
- import React from 'react';
- import {
-   AppRegistry,
-   StyleSheet,
-   Text,
-   View,
-   TouchableOpacity,
-   Dimensions,
-   NativeModules,
-   ToastAndroid
- } from 'react-native';
+import React from 'react';
+import {
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+  Dimensions,
+  NativeModules
+} from 'react-native';
 
-export default class Communication extends React.Component {
+const { ToastAndroidModule } = NativeModules;
 
-  onPress = ()=> {
-    // 這樣調用原生端方法,show出吐司
-    NativeModules.ToastAndroidModule
-    .HandleMessage("React Native 呼叫Native来吐司！！");
+const Communication = () => {
+  const onPress = () => {
+    ToastAndroidModule.HandleMessage("React Native 呼叫 Native 吐司！！ (Beautified)");
+  };
+
+  return (
+    <View style={styles.container}>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={onPress}
+        activeOpacity={0.8}
+      >
+        <Text style={styles.text}>React Native: 調用原生 Toast</Text>
+        <View style={styles.badge}>
+          <Text style={styles.badgeText}>JS Bridge</Text>
+        </View>
+      </TouchableOpacity>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    padding: 20,
+  },
+  button: {
+    backgroundColor: '#8A2BE2',
+    paddingVertical: 18,
+    paddingHorizontal: 24,
+    borderRadius: 16,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    shadowColor: '#8A2BE2',
+    shadowOffset: { width: 0, height: 6 },
+    shadowOpacity: 0.3,
+    shadowRadius: 10,
+    elevation: 6
+  },
+  text: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#FFFFFF'
+  },
+  badge: {
+    backgroundColor: 'rgba(255,255,255,0.2)',
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+    borderRadius: 8
+  },
+  badgeText: {
+    fontSize: 10,
+    color: '#FFFFFF',
+    fontWeight: 'bold'
   }
-
-   render() {
-     return (
-       <TouchableOpacity style={styles.container} onPress = {this.onPress.bind(this)}>
-          <View style={{
-          width:Dimensions.get('window').width,
-          height:50,
-          backgroundColor:'#dfd',
-          alignItems:'center',
-          justifyContent:'center'
-          }}>
-            <Text style={styles.text}>這是一個React Native按鈕,點擊調用原生Toast方法</Text>
-          </View>
-       </TouchableOpacity>
-     )
-   }
- }
- var styles = StyleSheet.create({
-   container: {
-     flex: 1,
-     justifyContent: 'center',
-   },
-   text:{
-       fontSize: 20
-   }
 });
+
+export default Communication;

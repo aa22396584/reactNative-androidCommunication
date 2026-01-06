@@ -9,16 +9,15 @@ import Communication1 from './communication1.js';
 import Communication2 from './communication2.js';
 import Communication3 from './communication3.js';
 
-class HelloWorld extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.hello}>我是Rn 界面</Text>
-      </View>
-    )
-  }
-}
-var styles = StyleSheet.create({
+const HelloWorld = () => {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.hello}>我是 Rn 主界面 (Functional)</Text>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',

@@ -1,14 +1,13 @@
 package com.johnsontech.reactnativeandroidhybrid
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
 import com.facebook.react.ReactInstanceManager
 import com.facebook.react.ReactRootView
 import com.facebook.react.common.LifecycleState
 import com.facebook.react.shell.MainReactPackage
 import com.johnsontech.reactnativeandroidhybrid.other.AndroidWidgetPackage
-import kotlinx.android.synthetic.main.activity_react_comunucatuin.*
-
 
 class ReactCommunicationActivity : AppCompatActivity() {
 
@@ -29,22 +28,18 @@ class ReactCommunicationActivity : AppCompatActivity() {
                 .setJSMainModulePath("index")
                 .addPackage(MainReactPackage())
                 .addPackage(reactPackage)   //加入AndroidModule
-                .setUseDeveloperSupport(BuildConfig.DEBUG)
+                .setUseDeveloperSupport(BuildConfig.DEBUG) // 現代 React Native 在 Debug 模式下會使用特定開發支援
                 .setInitialLifecycleState(LifecycleState.RESUMED)
                 .build()
 
-        // 注意這裡的MyReactNativeApp必須對應“index.android.js”中的
-        // “AppRegistry.registerComponent()”的第一個參數
-//        mReactRootView!!.startReactApplication(mReactInstanceManager, "Communication3", null)
-        react_root_view1.startReactApplication(mReactInstanceManager, "Communication2", null)
-        react_root_view2.startReactApplication(mReactInstanceManager, "Communication3", null)
+        val reactRootView1 = findViewById<ReactRootView>(R.id.react_root_view1)
+        val reactRootView2 = findViewById<ReactRootView>(R.id.react_root_view2)
+        val nativeBtn = findViewById<Button>(R.id.native_btn)
 
-        //將ReactView模塊添加進布局
-//        val linearLayout = findViewById<LinearLayout>(R.id.root_view)
-//        linearLayout.addView(mReactRootView)
+        reactRootView1.startReactApplication(mReactInstanceManager, "Communication2", null)
+        reactRootView2.startReactApplication(mReactInstanceManager, "Communication3", null)
 
-        //添加本地按鈕的點擊事件
-        native_btn.setOnClickListener {
+        nativeBtn.setOnClickListener {
             reactPackage!!.getToastModule().sendMessage("這是一條Android發送給React的消息${mClickTime++}")
         }
     }

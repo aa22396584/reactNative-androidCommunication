@@ -1,48 +1,62 @@
- import React from 'react';
- import {
-   AppRegistry,
-   StyleSheet,
-   Text,
-   View,
-   TouchableOpacity,
-   Dimensions,
-   NativeModules,
-   ToastAndroid,
-   DeviceEventEmitter
- } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import {
+  StyleSheet,
+  Text,
+  View,
+  Dimensions,
+  DeviceEventEmitter
+} from 'react-native';
 
-export default class Communication3 extends React.Component {
+const Communication3 = () => {
+  const [info, setInfo] = useState("等待原生訊息...");
 
-      constructor(){
-        super();
-        this.state = {
-            info : "我是React Native寫的內容"
-        }
-      }
+  useEffect(() => {
+    const subscription = DeviceEventEmitter.addListener('mEventName', (params) => {
+      setInfo(params);
+    });
 
-    componentWillMount(){
-      DeviceEventEmitter.addListener('mEventName',
-                           this.rnMethod.bind(this));
-    }
+    return () => {
+      subscription.remove();
+    };
+  }, []);
 
-    rnMethod(params){
-      this.setState({info:params});
-    }
+  return (
+    <View style={styles.container}>
+      <View style={styles.glassCard}>
+        <Text style={styles.label}>Incoming Native Message</Text>
+        <Text style={styles.info}>{info}</Text>
+      </View>
+    </View>
+  );
+};
 
-   render() {
-     return (
-       <TouchableOpacity style={styles.container}>
-          <View style={{width:Dimensions.get('window').width,height:50,margin:10,
-              backgroundColor:'#dfd',alignItems:'center',justifyContent:'center'}}>
-                <Text style={styles.hello}>{this.state.info}</Text>
-          </View>
-       </TouchableOpacity>
-     )
-   }
- }
- var styles = StyleSheet.create({
-   container: {
-     flex: 1,
-     justifyContent: 'center',
-   }
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 20,
+    justifyContent: 'center',
+  },
+  glassCard: {
+    backgroundColor: 'rgba(3, 218, 197, 0.1)',
+    borderWidth: 1,
+    borderColor: '#03DAC5',
+    borderRadius: 20,
+    padding: 24,
+    alignItems: 'center'
+  },
+  label: {
+    fontSize: 12,
+    color: '#03DAC5',
+    fontWeight: 'bold',
+    marginBottom: 8,
+    textTransform: 'uppercase'
+  },
+  info: {
+    fontSize: 16,
+    color: '#212121',
+    fontWeight: '500',
+    textAlign: 'center'
+  }
 });
+
+export default Communication3;
