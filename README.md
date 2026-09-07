@@ -119,3 +119,11 @@ useEffect(() => {
 ## 👤 作者
 - **ImL1s** - [iml1s@outlook.com](mailto:iml1s@outlook.com)
 - **GitHub**: [ImL1s](https://github.com/ImL1s)
+
+---
+
+## Support / 支持
+
+If this project saved you some time, you can [buy me a coffee](https://buymeacoffee.com/iml1s).
+
+如果這個專案幫你省了點時間，可以請我喝杯咖啡。
