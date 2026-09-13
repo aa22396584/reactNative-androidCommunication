@@ -8,6 +8,8 @@ https://github.com/aa22396584/reactNative-androidCommunication
 [Codeberg](https://codeberg.org/ImL1s/reactNative-androidCommunication)
 
 
+> **Why this GitHub home?** Public development moved here from [`ImL1s/reactNative-androidCommunication`](https://github.com/ImL1s/reactNative-androidCommunication) because that GitHub account is currently restricted (anonymous visitors get 404 on the profile and many assets). This is the same project. Please open Issues and Pull Requests here.
+
 [![React Native](https://img.shields.io/badge/React_Native-0.84.0-61DAFB?logo=react&logoColor=black)](https://reactnative.dev/)
 [![Android](https://img.shields.io/badge/Android-15_(SDK_35)-3DDC84?logo=android&logoColor=white)](https://developer.android.com/)
 [![Kotlin](https://img.shields.io/badge/Kotlin-2.3.0-7F52FF?logo=kotlin&logoColor=white)](https://kotlinlang.org/)
