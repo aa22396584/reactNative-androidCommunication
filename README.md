@@ -1,8 +1,11 @@
 # React Native & Android Communication Demo (2026 Modernized)
 
-> **Development home:** https://github.com/ImL1s/reactNative-androidCommunication  
-> Please open issues and pull requests there.  
-> **Mirrors:** [Codeberg](https://codeberg.org/ImL1s/reactNative-androidCommunication) · [GitLab](https://gitlab.com/aa22396584/reactNative-androidCommunication)
+**Development, Issues & Pull Requests:**  
+https://github.com/aa22396584/reactNative-androidCommunication
+
+**Mirrors:**  
+[GitLab](https://gitlab.com/aa22396584/reactNative-androidCommunication) ·
+[Codeberg](https://codeberg.org/ImL1s/reactNative-androidCommunication)
 
 
 [![React Native](https://img.shields.io/badge/React_Native-0.84.0-61DAFB?logo=react&logoColor=black)](https://reactnative.dev/)
